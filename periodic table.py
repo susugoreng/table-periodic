@@ -1,7 +1,7 @@
 import streamlit as st
 import math
 
-st.set_page_config(page_title="Kalkulator pH & pOH", layout="centered")
+st.set_page_config(page_title="periodic table", layout="centered")
 
 # Title
 st.title("⚗️ Games Kimia")
