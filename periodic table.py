@@ -10,13 +10,4 @@ st.title("⚗️ Games Kimia")
 st.write("""
 Aplikasi ini berguna untuk mempelajari tabel periodic unsur""")
 
-# Apply dark mode
-if show_dark_mode:
-    st.markdown(
-        """
-        <style>
-            body { background-color: #1e1e1e; color: white; }
-            .stApp { background-color: #1e1e1e; }
-        </style>
-        """, unsafe_allow_html=True
-    )
+
