@@ -1,18 +1,7 @@
 import streamlit as st
-import math
-
-st.set_page_config(page_title="periodic table", layout="centered")
-
-# Title
-st.title("⚗️ Games Kimia")
-
-# Description
-st.write("""
-Aplikasi ini berguna untuk mempelajari tabel periodic unsur""")
-
 import random
 
-# Daftar unsur kimia: simbol dan nama
+# Data unsur
 elements = [
     {"symbol": "H", "name": "hidrogen"},
     {"symbol": "He", "name": "helium"},
@@ -26,23 +15,17 @@ elements = [
     {"symbol": "K", "name": "kalium"}
 ]
 
-def play_game():
-    print("=== Game Tebak Unsur Kimia ===")
-    print("Tebak nama unsur berdasarkan simbolnya.")
-    score = 0
+# Inisialisasi session state
+if 'score' not in st.session_state:
+    st.session_state.score = 0
+if 'round' not in st.session_state:
+    st.session_state.round = 0
+if 'used' not in st.session_state:
+    st.session_state.used = []
+if 'current' not in st.session_state:
+    st.session_state.current = random.choice(elements)
 
-    for i in range(5):  # Main 5 ronde
-        element = random.choice(elements)
-        guess = input(f"\nApa nama unsur dengan simbol '{element['symbol']}'? ").lower().strip()
+st.title("🔬 Game Tebak Unsur Kimia")
+st.write("Tebak nama unsur berdasarkan **simbol kimia**!")
 
-        if guess == element['name']:
-            print("✅ Benar!")
-            score += 1
-        else:
-            print(f"❌ Salah. Jawaban yang benar: {element['name'].capitalize()}")
-
-    print(f"\nPermainan selesai. Skor akhir kamu: {score}/5")
-
-if __name__ == "__main__":
-    play_game()
-
+# Pilih simbol yang belum pernah dit
